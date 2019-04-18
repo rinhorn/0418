@@ -19,7 +19,9 @@ public class EventServiceImpl implements EventService{
 	public int insert(Event event) {
 		int result=0;
 		eventDAO.insert(event);
-		
+		for(int i=0;) {
+			
+		}
 		
 		return result;
 	}

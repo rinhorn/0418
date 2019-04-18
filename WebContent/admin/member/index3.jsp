@@ -1,6 +1,8 @@
+<%@page import="game.common.board.Pager"%>
 <%@page import="game.model.domain.Member"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%! Pager pager=new Pager(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,14 +36,21 @@ function getMember(){
 				str+="<td>"+result[i].name+"</td>";
 				str+="<td>"+result[i].nick+"</td>";
 				str+="<td>"+result[i].email+"</td>";
-				str+="</tr>";
 			}
+			
 			$("table").append(str);
 			$("table").append("<tr>");
-			$("table").append("<td colspan='5'>1 2 3 4 5</td>");
+			$("table").append("<td style=float:left>");
+			<%for(int i=1;i<=7;i++){%>
+			$("table").append("<%=i%>");
+			<%}%>
+			$("table").append("</td>");
 			$("table").append("</tr>");
 		}
 	});
+}
+function init(){
+	pager.init(request, boardList.size());
 }
 </script>
 <body>
@@ -57,14 +66,16 @@ function getMember(){
 		</form>
 	</div>
 
-	<table>
-		<tr>
-			<th>아이디</th>
-			<th>비밀번호</th>
-			<th>이름</th>
-			<th>닉네임</th>
-			<th>이메일</th>
-		</tr>
-	</table>
+		<table>
+			<tr>
+				<th>아이디</th>
+				<th>비밀번호</th>
+				<th>이름</th>
+				<th>닉네임</th>
+				<th>이메일</th>
+			</tr>
+		</table>
+			
+
 </body>
 </html>

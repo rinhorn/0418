@@ -8,4 +8,20 @@
 		select * from member order by member_id desc
 	</select>
 	
+	<select id="select" parameterType="int" resultType="Member">
+		select * from member where member_id=#{member_id}
+	</select>
+	
+	<insert id="insert" parameterType="Member">
+		insert into member(member_id,id,pass,name,nick,email) values(seq_member.nextval,#{id},#{pass},#{name},#{nick},#{email})
+	</insert>
+	
+	<update id="update" parameterType="Member">
+		update member set id=#{id}, pass=#{pass}, name=#{name}, nick=#{nick}, email=#{email} where member_id=#{member_id}
+	</update>	
+	
+	<delete id="delete" parameterType="int">
+		delete from member member_id=#{member_id}
+	</delete>
+	
 </mapper>

@@ -29,11 +29,11 @@ public class MybatisMemberDAO implements MemberDAO{
 
 
 	public int update(Member member) {
-		return 0;
+		return sessionTemplate.update("Member.update", member);
 	}
 
 
 	public int delete(int member_id) {
-		return 0;
+		return sessionTemplate.delete("Member.delete", member_id);
 	}
 }

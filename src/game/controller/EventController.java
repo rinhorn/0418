@@ -11,7 +11,6 @@ import game.model.service.EventService;
 public class EventController {
 	@Autowired
 	private EventService eventService;
-
 	@Autowired
 	private FileManager fileManager;
 

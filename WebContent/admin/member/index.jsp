@@ -2,7 +2,6 @@
 <%@page import="game.model.domain.Member"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%! Pager pager=new Pager(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,27 +30,22 @@ function getMember(){
 			var str="";
 			for(var i=0;i<result.length;i++){
 				str+="<tr>";
-				str+="<td>"+result[i].id+"</td>";
+				str+="<td><a href='/admin/member/memberDetail.jsp'>"+result[i].id+"</a></td>";
 				str+="<td>"+result[i].pass+"</td>";
 				str+="<td>"+result[i].name+"</td>";
 				str+="<td>"+result[i].nick+"</td>";
 				str+="<td>"+result[i].email+"</td>";
+				str+="</tr>";
 			}
 			
 			$("table").append(str);
 			$("table").append("<tr>");
-			$("table").append("<td style=float:left>");
-			<%for(int i=1;i<=7;i++){%>
-			$("table").append("<%=i%>");
-			<%}%>
-			$("table").append("</td>");
+			$("table").append("<td colspan='5'>1 2 3 4 5</td>");
 			$("table").append("</tr>");
 		}
 	});
 }
-function init(){
-	pager.init(request, boardList.size());
-}
+
 </script>
 <body>
 	<div>
@@ -65,7 +59,6 @@ function init(){
 			</button>
 		</form>
 	</div>
-
 		<table>
 			<tr>
 				<th>아이디</th>
@@ -75,7 +68,5 @@ function init(){
 				<th>이메일</th>
 			</tr>
 		</table>
-			
-
 </body>
 </html>
